@@ -1,0 +1,91 @@
+@import "settings/solarized";
+@import "components/asciidoc";
+@import "components/awesome-icons";
+
+body {
+	background-color: $base3;
+}
+
+%lead {
+	font-size: $paragraph-font-size;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+	border-bottom: 1px solid $hr-border-color;
+}
+
+#content #{headers()} {
+	& > a.anchor {
+		color: $body-font-color;
+	}
+}
+
+#header,
+#content,
+#footnotes {
+	max-width: 660px;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#content ul {
+	li {
+		padding-left: 0.7em;
+	}
+}
+
+.olist.procedure > ol {
+	counter-reset: li;
+	list-style: none;
+	position: relative;
+	& > li {
+		position: relative;
+		padding: 5px 0 5px 55px;
+		margin-bottom: 5px;
+		&:before {
+			content: counter(li);
+			counter-increment: li;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 30px;
+			padding: 0 10px 0 0;
+			color: #999;
+			font-size: emCalc(22px);
+			font-weight: bold;
+			line-height: 1.6;
+			text-align: right;
+			border-right: 1px solid #ddd;
+		}
+	}
+}
+
+.quoteblock {
+	blockquote {
+		padding-left: 1em;
+	}
+}
+
+.sidebarblock > .content > .title {
+	// FIXME kind of a hack
+	margin-top: -20px;
+	margin-right: -20px;
+	margin-left: -20px;
+	margin-bottom: 20px;
+	padding: 1em;
+	font-size: emCalc(12px);
+	background: #eaeaea;
+}
+
+.literalblock,
+.listingblock {
+	& pre {
+		background: $pre-bg;
+		font-size: 12px;
+	}
+}
